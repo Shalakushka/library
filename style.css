@@ -153,14 +153,14 @@ legend {
     gap: 20px;
 }
 
-.input > div {
+.input > label {
     display: flex;
     justify-content: end;
     align-items: center;
     gap: 30px;
 }
 
-.input > div > input {
+.input > label > input {
     width: 150px;
     height: 25px;
     border-radius: 5px;
