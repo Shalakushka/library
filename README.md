@@ -13,3 +13,7 @@ The Library Project is a web application that allows users to manage a collectio
 - Add new books to the library
 - Remove books from the library
 - Mark books as read or unread
+
+## Credits
+
+[Book icons created by Freepik - Flaticon](https://www.flaticon.com/free-icons/book)
