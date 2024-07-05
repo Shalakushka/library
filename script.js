@@ -115,10 +115,12 @@ function confirmButtonClicked(e) {
     e.preventDefault();
     let title = form.querySelector('input[name="title"]').value;
     let author = form.querySelector('input[name="author"]').value;
+    let read = form.querySelector('input[name="read"]').checked;
     /*
     Check Validation -- not implemented yet
     */
-    let book = new Book(title, author, false);
+   console.log(read);
+    let book = new Book(title, author, read);
     myLibrary.push(book);
     addBookToContainer(book);
     dialog.close();
