@@ -38,6 +38,7 @@ function addBookToContainer(book) {
     item.appendChild(bookDiv);
     const eraseButton = document.createElement("button");
     eraseButton.textContent = "X";
+    eraseButton.classList.add("erase-button");
     eraseButton.hidden = true;
     item.appendChild(eraseButton);
     libraryContainer.appendChild(item);
@@ -69,6 +70,7 @@ function initLibrary() {
         item.appendChild(book);
         const eraseButton = document.createElement("button");
         eraseButton.textContent = "X";
+        eraseButton.classList.add("erase-button");
         eraseButton.hidden = true;
         item.appendChild(eraseButton);
         libraryContainer.appendChild(item);
@@ -103,7 +105,18 @@ function addButtonClicked() {
 }
 
 function removeButtonClicked() {
-    console.log("Remove!");
+    const eraseButtons = document.querySelectorAll(".erase-button");
+    const addButton = document.querySelector("#add-button");
+    const removeButton = document.querySelector("#remove-button");
+// Now that the variables are here, I need to modify them so that when remove is clicked, it get turned into a confirm button and hide add button
+    for (let i = 0; i < eraseButtons.length; i++) {
+        eraseButtons[i].hidden = false;
+        eraseButtons[i].addEventListener("click", eraseButtonClicked);
+    }
+}
+
+function eraseButtonClicked(e) {
+    e.target.parentElement.remove();
 }
 
 function cancelButtonClicked(e) {
