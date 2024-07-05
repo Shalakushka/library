@@ -6,6 +6,7 @@ const myLibrary =
     new Book("Brave New World", "Aldous Huxley", false)];
 const libraryContainer = document.querySelector(".library");
 const dialog = document.querySelector("dialog");
+const form = document.querySelector("form");
 
 function Book(title, author, read) {
     this.title = title;
@@ -112,12 +113,15 @@ function cancelButtonClicked(e) {
 
 function confirmButtonClicked(e) {
     e.preventDefault();
+    let title = form.querySelector('input[name="title"]').value;
+    let author = form.querySelector('input[name="author"]').value;
+    /*
+    Check Validation -- not implemented yet
+    */
+    let book = new Book(title, author, false);
+    myLibrary.push(book);
+    addBookToContainer(book);
     dialog.close();
-    //Check Validation -- not implemented yet
-}
-
-function addBookToLibrary(e) {
-    
 }
 
 function removeDialog(e) {
