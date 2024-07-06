@@ -4,9 +4,12 @@ const myLibrary =
     new Book("1984", "George Orwell", false),
     new Book("Inferno", "Dan Brown", true),
     new Book("Brave New World", "Aldous Huxley", false)];
+
 const libraryContainer = document.querySelector(".library");
 const dialog = document.querySelector("dialog");
 const form = document.querySelector("form");
+const addButton = document.querySelector("#add-button");
+const removeButton = document.querySelector("#remove-button");
 
 function Book(title, author, read) {
     this.title = title;
@@ -106,13 +109,28 @@ function addButtonClicked() {
 
 function removeButtonClicked() {
     const eraseButtons = document.querySelectorAll(".erase-button");
-    const addButton = document.querySelector("#add-button");
-    const removeButton = document.querySelector("#remove-button");
-// Now that the variables are here, I need to modify them so that when remove is clicked, it get turned into a confirm button and hide add button
+
     for (let i = 0; i < eraseButtons.length; i++) {
         eraseButtons[i].hidden = false;
         eraseButtons[i].addEventListener("click", eraseButtonClicked);
     }
+    addButton.hidden = true;
+    removeButton.textContent = "Confirm"
+    removeButton.classList.remove("unvalid-button");
+    removeButton.classList.add("valid-button");
+    removeButton.addEventListener("click", confirmRemovalClicked);
+}
+
+function confirmRemovalClicked(e) {
+    const eraseButtons = document.querySelectorAll(".erase-button");
+
+    for (let i = 0; i < eraseButtons.length; i++)
+        eraseButtons[i].hidden = true;
+    addButton.hidden = false;
+    removeButton.textContent = "Remove"
+    removeButton.classList.remove("valid-button");
+    removeButton.classList.add("unvalid-button");
+    removeButton.addEventListener("click", removeButtonClicked);
 }
 
 function eraseButtonClicked(e) {
