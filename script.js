@@ -108,6 +108,7 @@ function addButtonClicked() {
 }
 
 function removeButtonClicked() {
+    console.log("The user enters remove mode");
     const eraseButtons = document.querySelectorAll(".erase-button");
 
     for (let i = 0; i < eraseButtons.length; i++) {
@@ -118,10 +119,12 @@ function removeButtonClicked() {
     removeButton.textContent = "Confirm"
     removeButton.classList.remove("unvalid-button");
     removeButton.classList.add("valid-button");
+    removeButton.removeEventListener("click", removeButtonClicked)
     removeButton.addEventListener("click", confirmRemovalClicked);
 }
 
 function confirmRemovalClicked(e) {
+    console.log("The user is done removing");
     const eraseButtons = document.querySelectorAll(".erase-button");
 
     for (let i = 0; i < eraseButtons.length; i++)
@@ -130,6 +133,7 @@ function confirmRemovalClicked(e) {
     removeButton.textContent = "Remove"
     removeButton.classList.remove("valid-button");
     removeButton.classList.add("unvalid-button");
+    removeButton.removeEventListener("click", confirmRemovalClicked)
     removeButton.addEventListener("click", removeButtonClicked);
 }
 
