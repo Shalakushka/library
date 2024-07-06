@@ -1,3 +1,11 @@
+class Book {
+    constructor(title, author, read) {
+        this.title = title;
+        this.author = author;
+        this.read = read;
+    }
+}
+
 const myLibrary =
     [new Book("The Da Vinci Code", "Dan Brown", true),
     new Book("Firestarter", "Stephen King", false),
@@ -11,11 +19,6 @@ const form = document.querySelector("form");
 const addButton = document.querySelector("#add-button");
 const removeButton = document.querySelector("#remove-button");
 
-function Book(title, author, read) {
-    this.title = title;
-    this.author = author;
-    this.read = read;
-}
 
 function addBookToContainer(book) {
     const item = document.createElement("div");
