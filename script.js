@@ -108,7 +108,6 @@ function addButtonClicked() {
 }
 
 function removeButtonClicked() {
-    console.log("The user enters remove mode");
     const eraseButtons = document.querySelectorAll(".erase-button");
 
     for (let i = 0; i < eraseButtons.length; i++) {
@@ -124,7 +123,6 @@ function removeButtonClicked() {
 }
 
 function confirmRemovalClicked(e) {
-    console.log("The user is done removing");
     const eraseButtons = document.querySelectorAll(".erase-button");
 
     for (let i = 0; i < eraseButtons.length; i++)
@@ -154,7 +152,6 @@ function confirmButtonClicked(e) {
     /*
     Check Validation -- not implemented yet
     */
-   console.log(read);
     let book = new Book(title, author, read);
     myLibrary.push(book);
     addBookToContainer(book);
